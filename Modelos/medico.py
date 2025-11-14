@@ -7,24 +7,24 @@ class Medico(Pessoa):
         self_especialidade = especialidade
     
     @property
-    def especialidade(self):
+    def crm(self):
         return self._crm
 
-    @especialidade.setter
-    def especialidade(self, valor):
-        if not valor:
+    @crm.setter
+    def crm(self, novo_crm):
+        if not novo_crm:
             raise ValueError("CRM não pode ser vazio.")
-        if len(valor) < 6:
+        if len(novo_crm) < 6:
             raise ValueError("CRM inválido.")
-        self._crm = valor
+        self._crm = novo_crm
     
     @property
     def especialidade(self):
         return self._especialidade
 
     @especialidade.setter
-    def especialidade(self, valor):
-        if not valor:
+    def especialidade(self, nova_especialidade):
+        if not nova_especialidade:
             raise ValueError("Especialidade não pode ser vazia")
     
     def exibir_dados(self):

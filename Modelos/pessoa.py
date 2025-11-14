@@ -12,9 +12,9 @@ class Pessoa(ABC):
         return self._nome
 
     @nome.setter
-    def nome(self, valor):
-        if valor.strip():  
-            self._nome = valor
+    def nome(self, novo_nome):
+        if novo_nome.strip():  
+            self._nome = novo_nome
         else:
             raise ValueError("O nome não pode ser vazio.")
 
@@ -24,26 +24,26 @@ class Pessoa(ABC):
         return self._cpf
 
     @cpf.setter
-    def cpf(self, valor):
+    def cpf(self, novo_cpf):
         
-        valor = valor.strip()
+        novo_cpf = novo_cpf.strip()
 
-        if not valor:
+        if not novo_cpf:
             raise ValueError("O CPF não pode ser vazio.")
 
-        if not valor.isdigit() or len(valor) != 11:
+        if not novo_cpf.isdigit() or len(novo_cpf) != 11:
             raise ValueError("O CPF deve conter 11 dígitos.")
 
-        self._cpf = valor
+        self._cpf = novo_cpf
 
     @property
     def telefone(self):
         return self._telefone
 
     @telefone.setter
-    def telefone(self, valor):
-        if valor.strip():
-            self._telefone = valor
+    def telefone(self, novo_telefone):
+        if novo_telefone.strip():
+            self._telefone = novo_telefone
         else:
             raise ValueError("O telefone não pode ser vazio.")
     
