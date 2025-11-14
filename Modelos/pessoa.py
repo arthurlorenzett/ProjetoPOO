@@ -44,3 +44,8 @@ class Pessoa:
             self._telefone = valor
         else:
             raise ValueError("O telefone não pode ser vazio.")
+    
+    def exibir_dados(self):
+        print(f"Nome: {self.nome}")
+        print(f"CPF: {self.cpf}")
+        print(f"Telefone: {self.telefone}")
