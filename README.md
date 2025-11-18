@@ -30,6 +30,12 @@ SistemaAgendamento_codigo/
 └── requirements.txt        # Dependências
 
 
+## Diagrama de Classes
+![Diagrama de Classes](./Imagens/UML.png)
+
+## Diagrama de Casos de Uso
+![Diagrama de Casos de Uso](./Imagens/CASOSDEUSO.png)
+
 ## Funcionalidades
 Cadastro de pacientes e médicos
 Criação e gerenciamento de agendamentos
