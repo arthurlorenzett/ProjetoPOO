@@ -1,9 +1,9 @@
-class Agendamento:
+class AgendamentoService:
 
     def __init__(self):
         self._consultas = []
 
-    def adicionar_consulta(self, consulta):
+    def agendar(self, consulta):
 
         for c in self._consultas:
             if (c.medico == consulta.medico and
