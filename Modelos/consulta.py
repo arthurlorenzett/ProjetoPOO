@@ -5,14 +5,13 @@ from Modelos.paciente import Paciente
 class Consulta:
     _id_counter = 1
 
-    def __init__(self, medico: Medico, paciente: Paciente, data_hora: datetime, motivo: str, status: str = "agendada"):
+    def __init__(self, medico: Medico, paciente: Paciente, data_hora: datetime, status: str = "agendada"):
         self.id = Consulta._id_counter
         Consulta._id_counter += 1
 
         self.medico = medico
         self.paciente = paciente
         self.data_hora = data_hora
-        self.motivo = motivo
         self.status = status
 
     def alterar_status(self, novo_status: str):
