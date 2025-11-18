@@ -1,9 +1,9 @@
-🩺 Sistema de Agendamento
+# Sistema de Agendamento
 
 Um sistema simples e modular para gerenciamento de agendamentos, pacientes, médicos e pagamentos.
 O projeto segue uma arquitetura organizada em Modelos, Serviços e Testes, facilitando manutenção, escalabilidade e testes unitários.
 
-📁 Estrutura do Projeto
+## Estrutura do Projeto
 SistemaAgendamento_codigo/
 │
 ├── Modelos/                 # Classes de domínio
@@ -30,7 +30,7 @@ SistemaAgendamento_codigo/
 └── requirements.txt        # Dependências
 
 
-🚀 Funcionalidades
+## Funcionalidades
 Cadastro de pacientes e médicos
 Criação e gerenciamento de agendamentos
 Vinculação de consultas com horários
@@ -38,29 +38,29 @@ Processamento básico de pagamentos
 Camada de serviços separada
 Testes automatizados
 
-🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 Python 3.11+
 Arquitetura orientada a objetos
 Testes com pytest
 
-📦 Instalação
+## Instalação
 Clone o repositório:
 git clone https://github.com/arthurlorenzett/ProjetoPOO.git
 cd SistemaAgendamento
 
 
-Instale as dependências:
+## Instale as dependências:
 pip install -r requirements.txt
 
-▶️ Como Executar
+## Como Executar
 Execute o arquivo principal:
 python main.py
 
-🧪 Rodando os Testes
+## Rodando os Testes
 Use o pytest:
 pytest -v
 
-📚 Estrutura de Classes
+## Estrutura de Classes
 Modelos
 Pessoa – Classe base para Paciente e Médico
 Paciente
@@ -74,7 +74,7 @@ Serviços
 AgendamentoService – Responsável por criar e organizar agendamentos
 PagamentoService – Realiza validação e registro de pagamentos
 
-🧩 Exemplo de Uso
+## Exemplo de Uso
 from Modelos.paciente import Paciente
 from Modelos.medico import Medico
 from Servicos.agendamento_service import AgendamentoService
@@ -84,7 +84,7 @@ ag_service = AgendamentoService()
 agendamento = ag_service.criar_agendamento(paciente, medico, "10/02/2025 15:00")
 print(agendamento)
 
-📌 Melhorias Futuras
+## Melhorias Futuras
 Persistência de dados (SQLite ou PostgreSQL)
 API REST (FastAPI ou Flask)
 Interface web ou mobile
