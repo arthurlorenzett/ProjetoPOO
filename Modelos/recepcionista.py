@@ -2,7 +2,7 @@ from Modelos.pessoa import Pessoa
 from Modelos.consulta import Consulta
 
 class Recepcionista(Pessoa):
-    def __init__(self, nome: str, cpf: str, telefone: str, matricula: str):
+    def __init__(self, nome, cpf, telefone, matricula):
         super().__init__(nome, cpf, telefone)
         self._matricula = matricula
         self._consultas = []
