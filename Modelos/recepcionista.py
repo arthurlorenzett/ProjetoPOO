@@ -4,12 +4,23 @@ from Modelos.consulta import Consulta
 class Recepcionista(Pessoa):
     def __init__(self, nome, cpf, telefone, matricula):
         super().__init__(nome, cpf, telefone)
-        self._matricula = matricula
+        self.matricula = matricula
         self._consultas = []
+    
+    @property
+    def matricula(self):
+        return self._matricula
+    
+    @matricula.setter
+    def matricula(self, nova_matricula):
+        if nova_matricula.strip():
+            self._matricula = nova_matricula
+        else:
+            raise ValueError("A matrícula não pode ser vazia.")
 
     def exibir_dados(self):
         super().exibir_dados()
-        print(f"Matrícula: {self._matricula}")
+        print(f"Matrícula: {self.matricula}")
 
     def agendar_consulta(self, consulta: Consulta):
         self._consultas.append(consulta)

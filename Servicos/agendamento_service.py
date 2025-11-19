@@ -1,17 +1,14 @@
 class AgendamentoService:
 
     def __init__(self):
-        self._consultas = []
+        self.consultas = []
 
     def agendar(self, consulta):
-
-        for c in self._consultas:
-            if (c.medico == consulta.medico and
-                c.data == consulta.data and
-                c.hora == consulta.hora):
+        for c in self.consultas:
+            if c.medico == consulta.medico and c.data_hora == consulta.data_hora:
                 raise ValueError("Já existe uma consulta marcada para este médico neste horário.")
-
-        self._consultas.append(consulta)
+        
+        self.consultas.append(consulta)
 
     def listar_consultas(self):
-        return self._consultas
+        return self.consultas
