@@ -38,6 +38,7 @@ def testar_cadastro():
     return p, m, r
 
 
+# ============================================================
 def testar_agendamento(paciente, medico):
     print("\n=== TESTE: AGENDAMENTO ===")
 

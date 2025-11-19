@@ -17,7 +17,7 @@ agendamento_service = AgendamentoService()
 pagamento_service = PagamentoService()
 
 # -----------------------------
-# "BANCO DE DADOS"
+# BANCO DE DADOS
 # -----------------------------
 pacientes = {}
 medicos = {}
