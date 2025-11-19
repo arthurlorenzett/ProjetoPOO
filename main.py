@@ -59,12 +59,34 @@ def menu():
         else:
             print("Opção inválida.\n")
 
+# ----------------------------------------
+# ESCOLHER RECEPCIONISTA
+# ----------------------------------------
+def escolher_recepcionista():
+    if not recepcionistas:
+        print("Nenhum recepcionista cadastrado!")
+        return None
 
+    print("\n--- RECEPCIONISTAS DISPONÍVEIS ---")
+    for r in recepcionistas.values():
+        print(f"- {r._nome} | CPF: {r._cpf} | Matrícula: {r._matricula}")
+
+    cpf = input("Digite o cpf do recepcionista: ")
+
+    if cpf not in recepcionistas:
+        print("Recepcionista não encontrado!")
+        return None
+
+    return recepcionistas[cpf] 
 # ----------------------------------------
 # 1) AGENDAMENTO DE CONSULTA
 # ----------------------------------------
 def menu_agendar():
     print("\n--- AGENDAR CONSULTA ---")
+    recepcionista = escolher_recepcionista()
+    if recepcionista is None:
+        return
+    print(f"\nRecepcionista selecionado: {recepcionista._nome}")
 
     cpf_paciente = input("CPF do paciente: ")
     if cpf_paciente not in pacientes:
@@ -204,6 +226,9 @@ def menu_exibir_todos():
         for c in consultas_agendadas:
             print(c)
             print("--------------------")
+
+
+    
 
 
 # ----------------------------------------
