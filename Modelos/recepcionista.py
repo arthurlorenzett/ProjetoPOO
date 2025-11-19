@@ -40,3 +40,4 @@ class Recepcionista(Pessoa):
             f"Recepcionista(nome='{self._nome}', "
             f"matricula='{self._matricula}')"
         )
+    # Fim da classe Recepcionista
