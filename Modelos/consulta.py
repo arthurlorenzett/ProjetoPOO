@@ -15,7 +15,7 @@ class Consulta:
         self.data_hora = data_hora
         self.status = status
 
-        self.recepcionista = None  # <-- NOVO
+        self.recepcionista = None  
 
     def registrar_responsavel(self, recepcionista):
         self.recepcionista = recepcionista
@@ -24,8 +24,8 @@ class Consulta:
         self.status = "cancelada"
         self.recepcionista = recepcionista
 
-    #def alterar_status(self, novo_status: str):
-      #  self.status = novo_status
+    def alterar_status(self, novo_status: str):
+        self.status = novo_status
 
     def reagendar(self, nova_data_hora: datetime):
         self.data_hora = nova_data_hora
