@@ -20,8 +20,10 @@ def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas
     # Área de texto rolável
     caixa_texto = scrolledtext.ScrolledText(janela, width=60, height=20)
     caixa_texto.pack(pady=10)
+    caixa_texto.config(state="disabled")  # impede edição
 
     def exibir():
+        caixa_texto.config(state="normal")
         caixa_texto.delete("1.0", tk.END)
         escolha = opcao_var.get()
 
@@ -73,4 +75,5 @@ def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas
                     caixa_texto.insert(tk.END, f"Responsável: {resp}\n")
                     caixa_texto.insert(tk.END, "-"*40 + "\n")
 
+        caixa_texto.config(state="disabled")  # bloquear novamente      
     tk.Button(janela, text="Exibir", width=20, bg="#1976D2", fg="white", command=exibir).pack()
