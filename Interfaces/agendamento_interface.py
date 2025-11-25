@@ -23,6 +23,10 @@ def abrir_tela_agendamento(janela_principal, agendamento_service, pacientes, med
     entry_cpf_medico = tk.Entry(janela_agendamento)
     entry_cpf_medico.pack()
 
+    tk.Label(janela_agendamento, text="Motivo da consulta:").pack()
+    entry_motivo = tk.Entry(janela_agendamento, width=40)
+    entry_motivo.pack()
+
     tk.Label(janela_agendamento, text="Data (AAAA-MM-DD):").pack()
     entry_data = tk.Entry(janela_agendamento)
     entry_data.pack()
@@ -36,6 +40,7 @@ def abrir_tela_agendamento(janela_principal, agendamento_service, pacientes, med
         cpf_recepc = entry_cpf_recepc.get()
         cpf_paciente = entry_cpf_paciente.get()
         cpf_medico = entry_cpf_medico.get()
+        motivo = entry_motivo.get()
         data_txt = entry_data.get()
         hora_txt = entry_hora.get()
 
@@ -61,7 +66,8 @@ def abrir_tela_agendamento(janela_principal, agendamento_service, pacientes, med
         consulta = Consulta(
             medico=medicos[cpf_medico],
             paciente=pacientes[cpf_paciente],
-            data_hora=data_hora
+            data_hora=data_hora,
+            motivo=motivo
         )
 
         # REGISTRA RESPONSÁVEL

@@ -6,13 +6,14 @@ from Modelos.paciente import Paciente
 class Consulta:
     _id_counter = 1
 
-    def __init__(self, medico: Medico, paciente: Paciente, data_hora: datetime, status: str = "agendada"):
+    def __init__(self, medico: Medico, paciente: Paciente, data_hora: datetime, motivo: str, status: str = "agendada"):
         self.id = Consulta._id_counter
         Consulta._id_counter += 1
 
         self.medico = medico
         self.paciente = paciente
         self.data_hora = data_hora
+        self.motivo = motivo
         self.status = status
 
         self._recepcionista = None  
@@ -64,6 +65,17 @@ class Consulta:
         if not isinstance(valor, datetime):
             raise ValueError("A data e hora devem ser um objeto datetime.")
         self._data_hora = valor
+    
+    @property
+    def motivo(self):
+        return self._motivo
+
+    @motivo.setter
+    def motivo(self, valor):
+        if not valor or not isinstance(valor, str):
+            raise ValueError("O motivo da consulta não pode ser vazio.")
+        self._motivo = valor.strip()
+
 
     @property
     def status(self):
@@ -91,5 +103,6 @@ class Consulta:
         return (
             f"Consulta(id={self.id}, medico={self.medico.nome}, "
             f"paciente={self.paciente.nome}, data_hora={self.data_hora}, "
-            f"status='{self.status}', recepcionista='{resp}')"
-        )
+            f"motivo='{self.motivo}', status='{self.status}', "
+            f"recepcionista='{resp}')"
+    )

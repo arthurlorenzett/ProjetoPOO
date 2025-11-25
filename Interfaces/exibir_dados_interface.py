@@ -69,6 +69,7 @@ def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas
                     caixa_texto.insert(tk.END, f"ID: {c.id}\n")
                     caixa_texto.insert(tk.END, f"Médico: {c.medico.nome}\n")
                     caixa_texto.insert(tk.END, f"Paciente: {c.paciente.nome}\n")
+                    caixa_texto.insert(tk.END, f"Motivo: {c.motivo}\n")
                     caixa_texto.insert(tk.END, f"Data e hora: {c.data_hora}\n")
                     caixa_texto.insert(tk.END, f"Status: {c.status}\n")
                     resp = c.recepcionista.nome if c.recepcionista else "Nenhum"
