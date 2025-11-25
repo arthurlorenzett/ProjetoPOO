@@ -93,7 +93,8 @@ def iniciar_interface():
         pacientes,
         medicos,
         recepcionistas,
-        consultas
+        consultas,
+        pagamentos
     )
     ).pack(pady=10)
 

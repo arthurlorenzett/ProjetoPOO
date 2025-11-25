@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import messagebox, scrolledtext
 
 
-def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas, consultas):
+def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas, consultas, pagamentos):
     janela = tk.Toplevel(janela_principal)
     janela.title("Exibir Dados")
     janela.geometry("500x500")
@@ -12,7 +12,7 @@ def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas
     opcao_var = tk.StringVar()
     opcao_var.set("Pacientes")
 
-    opcoes = ["Pacientes", "Médicos", "Recepcionistas", "Consultas"]
+    opcoes = ["Pacientes", "Médicos", "Recepcionistas", "Consultas", "Pagamentos"]
 
     menu = tk.OptionMenu(janela, opcao_var, *opcoes)
     menu.pack(pady=10)
@@ -75,6 +75,14 @@ def abrir_tela_exibir_dados(janela_principal, pacientes, medicos, recepcionistas
                     resp = c.recepcionista.nome if c.recepcionista else "Nenhum"
                     caixa_texto.insert(tk.END, f"Responsável: {resp}\n")
                     caixa_texto.insert(tk.END, "-"*40 + "\n")
-
+        elif escolha == "Pagamentos":
+            if not pagamentos:
+                caixa_texto.insert(tk.END, "Nenhum pagamento registrado.")
+            else:
+                for pg in pagamentos:
+                    caixa_texto.insert(tk.END, f"Valor: R$ {pg.valor:.2f}\n")
+                    caixa_texto.insert(tk.END, f"Método: {pg.metodo}\n")
+                    caixa_texto.insert(tk.END, f"Status: {pg.status}\n")
+                    caixa_texto.insert(tk.END, "-"*40 + "\n")
         caixa_texto.config(state="disabled")  # bloquear novamente      
     tk.Button(janela, text="Exibir", width=20, bg="#1976D2", fg="white", command=exibir).pack()
