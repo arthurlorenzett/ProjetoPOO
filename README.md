@@ -6,6 +6,16 @@ O projeto segue uma arquitetura organizada em Modelos, Serviços e Testes, facil
 ## Estrutura do Projeto
 SistemaAgendamento_codigo/
 │
+├── Interfaces/                 # Classes de Interface
+│   ├── __init__.py
+│   ├── agendamento_interface.py
+│   ├── cadastro_interface.py
+│   ├── cancelamento_interface.py
+│   ├── exibir_dados_interface.py
+│   ├── main_interface.py
+│   ├── pagamento_interface.py
+│   ├── run_interface.py
+│
 ├── Modelos/                 # Classes de domínio
 │   ├── agendamento.py
 │   ├── agenda.py
@@ -25,13 +35,15 @@ SistemaAgendamento_codigo/
 │   ├── test_agendamento.py
 │   └── test_pagamento.py
 │
-├── main.py                 # Ponto de entrada da aplicação
 ├── README.md               # (Este arquivo)
 └── requirements.txt        # Dependências
 
 
-## Diagrama de Classes
+## Diagrama de Classes Inicial
 ![Diagrama de Classes](./Imagens/UML.png)
+
+## Diagrama de Classes Final
+![Diagrama de Classes](./Imagens/DiagramadeClassesFinal.png)
 
 ## Diagrama de Casos de Uso
 ![Diagrama de Casos de Uso](./Imagens/CASOSDEUSO.png)
@@ -60,7 +72,7 @@ pip install -r requirements.txt
 
 ## Como Executar
 Execute o arquivo principal:
-python main.py
+py -m Interfaces.run_interface
 
 ## Rodando os Testes
 Use o pytest:
@@ -80,18 +92,7 @@ Serviços
 AgendamentoService – Responsável por criar e organizar agendamentos
 PagamentoService – Realiza validação e registro de pagamentos
 
-## Exemplo de Uso
-from Modelos.paciente import Paciente
-from Modelos.medico import Medico
-from Servicos.agendamento_service import AgendamentoService
-paciente = Paciente("João", 30, "12345678900")
-medico = Medico("Dra. Ana", 45, "CRM-1234")
-ag_service = AgendamentoService()
-agendamento = ag_service.criar_agendamento(paciente, medico, "10/02/2025 15:00")
-print(agendamento)
-
 ## Melhorias Futuras
 Persistência de dados (SQLite ou PostgreSQL)
 API REST (FastAPI ou Flask)
-Interface web ou mobile
 Sistema de notificações
