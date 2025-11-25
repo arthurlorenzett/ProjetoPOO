@@ -37,7 +37,7 @@ def abrir_tela_cadastro(janela_principal, pacientes, medicos, recepcionistas):
     entry_telefone = tk.Entry(frame, width=30)
     entry_telefone.grid(row=2, column=1)
 
-    # CAMPO EXTRA – muda conforme o tipo selecionado
+    # CAMPO EXTRA
     label_extra = tk.Label(frame, text="Histórico médico:")
     entry_extra = tk.Entry(frame, width=30)
     label_extra.grid(row=3, column=0, sticky="w")
@@ -62,30 +62,35 @@ def abrir_tela_cadastro(janela_principal, pacientes, medicos, recepcionistas):
         extra = entry_extra.get().strip()
         tipo = tipo_var.get()
 
-        if not nome or not cpf or not telefone or not extra:
-            messagebox.showerror("Erro", "Preencha todos os campos.")
+        # ----- TRATAMENTO DE ERROS DAS CLASSES -----
+        try:
+            if tipo == "Paciente":
+                novo = Paciente(nome, cpf, telefone, extra)
+                pacientes[cpf] = novo
+
+            elif tipo == "Médico":
+                try:
+                    crm, especialidade = extra.split("/")
+                except:
+                    messagebox.showerror("Erro", "Formato inválido! Use: CRM/Especialidade")
+                    return
+
+                novo = Medico(nome, cpf, telefone, crm.strip(), especialidade.strip())
+                medicos[cpf] = novo
+
+            elif tipo == "Recepcionista":
+                novo = Recepcionista(nome, cpf, telefone, extra)
+                recepcionistas[cpf] = novo
+
+        except ValueError as erro:
+            messagebox.showerror("Erro de validação", str(erro))
             return
-
-        # CADASTRO
-        if tipo == "Paciente":
-            novo = Paciente(nome, cpf, telefone, extra)
-            pacientes[cpf] = novo
-
-        elif tipo == "Médico":
-            try:
-                crm, especialidade = extra.split("/")
-            except:
-                messagebox.showerror("Erro", "Formato inválido! Use: CRM/Especialidade")
-                return
-            novo = Medico(nome, cpf, telefone, crm.strip(), especialidade.strip())
-            medicos[cpf] = novo
-
-        elif tipo == "Recepcionista":
-            novo = Recepcionista(nome, cpf, telefone, extra)
-            recepcionistas[cpf] = novo
+        # -------------------------------------------
 
         messagebox.showinfo("Sucesso", f"{tipo} cadastrado(a) com sucesso!")
         cadastro.destroy()
 
-    tk.Button(cadastro, text="Cadastrar", font=("Arial", 12), bg="#4CAF50", fg="white",
-              width=20, command=salvar).pack(pady=20)
+    tk.Button(
+        cadastro, text="Cadastrar", font=("Arial", 12),
+        bg="#4CAF50", fg="white", width=20, command=salvar
+    ).pack(pady=20)

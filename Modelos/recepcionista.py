@@ -1,5 +1,5 @@
 from Modelos.pessoa import Pessoa
-from Modelos.consulta import Consulta
+
 
 class Recepcionista(Pessoa):
     def __init__(self, nome, cpf, telefone, matricula):
@@ -22,7 +22,7 @@ class Recepcionista(Pessoa):
         super().exibir_dados()
         print(f"Matrícula: {self.matricula}")
 
-    def agendar_consulta(self, consulta: Consulta):
+    def agendar_consulta(self, consulta):
         self._consultas.append(consulta)
 
     def cancelar_consulta(self, consulta_id: int):
