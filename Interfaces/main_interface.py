@@ -4,6 +4,7 @@ from Interfaces.cadastro_interface import abrir_tela_cadastro
 from Interfaces.agendamento_interface import abrir_tela_agendamento
 from Interfaces.cancelamento_interface import abrir_tela_cancelamento
 from Interfaces.exibir_dados_interface import abrir_tela_exibir_dados
+from Interfaces.pagamento_interface import abrir_tela_pagamento
 
 # Serviços
 from Servicos.agendamento_service import AgendamentoService
@@ -20,6 +21,7 @@ def iniciar_interface():
     medicos = {}
     recepcionistas = {}
     consultas = []
+    pagamentos = []
 
     # Serviço de agendamento
     agendamento_service = AgendamentoService()
@@ -78,7 +80,7 @@ def iniciar_interface():
         )
     ).pack(pady=10)
 
- # ----------- BOTÃO: EXIBIR DADOS -----------
+    # ----------- BOTÃO: EXIBIR DADOS -----------
     tk.Button(
     janela,
     text="Exibir Dados",
@@ -93,7 +95,22 @@ def iniciar_interface():
         recepcionistas,
         consultas
     )
+    ).pack(pady=10)
+
+    # ----------- BOTÃO: PAGAMENTO -----------
+    tk.Button(
+    janela,
+    text="Pagamento",
+    font=("Arial", 12),
+    bg="#FF9800",
+    fg="white",
+    width=25,
+    command=lambda: abrir_tela_pagamento(
+        janela,
+        pagamentos
+    )
 ).pack(pady=10)
+
 
 
     janela.mainloop()
