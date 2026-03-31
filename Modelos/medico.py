@@ -3,8 +3,8 @@ from Modelos.pessoa import Pessoa
 class Medico(Pessoa):
     def __init__(self, nome, cpf, telefone, crm, especialidade):
         super().__init__(nome, cpf, telefone)
-        self._crm = crm
-        self._especialidade = especialidade
+        self.crm = crm
+        self.especialidade = especialidade
     
     @property
     def crm(self):
@@ -26,6 +26,7 @@ class Medico(Pessoa):
     def especialidade(self, nova_especialidade):
         if not nova_especialidade:
             raise ValueError("Especialidade não pode ser vazia")
+        self._especialidade = nova_especialidade
     
     def exibir_dados(self):
         super().exibir_dados()

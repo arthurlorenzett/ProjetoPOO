@@ -13,6 +13,7 @@ class Paciente(Pessoa):
     def historico_medico(self, novo_historico):
         if not novo_historico:
             raise ValueError("Historico não pode ser vazio")
+        self._historico_medico = novo_historico
 
     def exibir_dados(self):
         super().exibir_dados()
